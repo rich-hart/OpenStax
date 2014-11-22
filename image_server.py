@@ -3,12 +3,18 @@
 import web
 import os
 
+from retrieve_image_from_db import * 
+
 urls = (
 '/images/(.*)', 'images' #this is where the image folder is located....
 )
 
 class images:
-    def GET(self,name):
+    def GET(self,index):
+        
+        index = int(index)
+        name = retrieve_image_filename_from_db(index)
+        
         ext = name.split(".")[-1] # Gather extension
 
         cType = {
@@ -19,10 +25,12 @@ class images:
 
         if name in os.listdir('images'):  # Security
             web.header("Content-Type", cType[ext]) # Set the Header
-            return open('images/%s'%name,"rb").read() # Notice 'rb' for reading images
+            data = retrieve_image_data_from_db(index)
+            return data # Notice 'rb' for reading images
         else:
             raise web.notfound()
 
 if __name__ == "__main__":
+    
     app = web.application(urls, globals())
     app.run()
