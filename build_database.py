@@ -4,12 +4,13 @@
 import sqlite3 as lite
 import sys
 
-image_file_name = "images/knot.jpg"
+image_directory = "images/"
+image_file_name = "knot.jpg"
 
 def readImage():
 
     try:
-        fin = open(image_file_name, "rb")
+        fin = open(image_directory+image_file_name, "rb")
         img = fin.read()
         return img
         
@@ -37,6 +38,7 @@ try:
     cur.execute("DROP TABLE IF EXISTS Images")
     cur.execute("CREATE TABLE Images(Id INTEGER PRIMARY KEY, Data BLOB)")
     cur.execute("INSERT INTO Images(Data) VALUES (?)", (binary,) )
+    #cur.execute("DROP TABLE IF EXISTS Images")
 
     con.commit()    
     
