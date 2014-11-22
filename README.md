@@ -36,7 +36,8 @@ check databaase contents
 
       sqlite3 test.db
       .schema Images
-      sqlite> SELECT * FROM test.db;
+      sqlite> SELECT * FROM Images;
+      sqlite> SELECT * FROM Images_Names;
 
 Retrieve Images From Server:
 
