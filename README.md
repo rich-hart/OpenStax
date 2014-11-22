@@ -9,7 +9,7 @@ Setup
       
 <!---And run chmod +x code.py to make it executable.-->
 
-Run
+Run Server
 --------
 Make the file executable
 
@@ -22,3 +22,8 @@ Run the file
 Specify port by running
 
       python code.py 1234
+
+Retrieve Images From Server
+
+      python image_server.py 8000
+      http://0.0.0.0:8000/images/Linux_logo.png
