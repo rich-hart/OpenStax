@@ -20,10 +20,11 @@ build image database for testing
 
       python build_database.py
       
-check databaase contents
+check database contents
 
       sqlite3 test.db
-      sqlite> .schema Images
+      sqlite> .schema Images;
+      sqlite> .schema Images_Names;
       sqlite> SELECT * FROM Images;
       sqlite> SELECT * FROM Images_Names;
 
@@ -37,7 +38,7 @@ Start the server
       chmod +x image_server.py
       python image_server.py 8000
 
-Retrieve Images From Server:
+Retrieve Images From Server by going to the flowing urls in browser:
 
       http://0.0.0.0:8000/images/1
       http://0.0.0.0:8000/images/2
