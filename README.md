@@ -13,6 +13,7 @@ Install web.py, flup,python-psycopg2 and sqlite
 <!---And run chmod +x code.py to make it executable.-->
 Build Test Database
 --------
+Assuming that images are saved under a table named 'Images'
 
 build image database for testing
 
