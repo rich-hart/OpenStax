@@ -38,7 +38,7 @@ Start the server
       chmod +x image_server.py
       python image_server.py 8000
 
-Retrieve Images From Server by going to the flowing urls in browser:
+Retrieve images from server by going to the flowing urls in browser:
 
       http://0.0.0.0:8000/images/1
       http://0.0.0.0:8000/images/2
