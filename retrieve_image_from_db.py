@@ -7,6 +7,8 @@ import sys
 
 image_output_directory = "output_images/"
 database = 'test.db'
+query_index = 1
+
 def writeImage(data,image_file_name):
     
     try:
@@ -61,8 +63,8 @@ def retrieve_image_filename_from_db(retrieve_index):
             con.close()
 
 if __name__ == "__main__":
-    image_file_name = retrieve_image_filename_from_db(1)
-    data = retrieve_image_data_from_db(1)
+    image_file_name = retrieve_image_filename_from_db(query_index)
+    data = retrieve_image_data_from_db(query_index)
     writeImage(data,image_output_directory+image_file_name)
     
     
