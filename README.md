@@ -43,4 +43,6 @@ Retrieve Images From Server:
 
 
       python image_server.py 8000
-      http://0.0.0.0:8000/images/Linux_logo.png
+      http://0.0.0.0:8000/images/1
+
+Note: code assumes that database is saved under 'test.db'
