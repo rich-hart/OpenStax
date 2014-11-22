@@ -45,3 +45,6 @@ Notes
 Assume that the database is saved as 'test.db'
 
 retrieve_image_from_db.py has sqlite support functions
+
+image_server.py has web.py class for REST APIs
+
