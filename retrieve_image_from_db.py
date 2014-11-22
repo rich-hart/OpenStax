@@ -6,7 +6,7 @@ import sqlite3 as lite
 import sys
 
 image_output_directory = "output_images/"
-
+database = 'test.db'
 def writeImage(data,image_file_name):
     
     try:
@@ -21,28 +21,48 @@ def writeImage(data,image_file_name):
         
         if fout:
             fout.close()       
-    
 
-try:
-    con = lite.connect('test.db')
-    cur = con.cursor()
+def retrieve_image_data_from_db(retrieve_index):
+    try:
+        con = lite.connect(database)
+        cur = con.cursor()
+        
+        cur.execute("SELECT Data FROM Images WHERE Id = %d LIMIT 1"%retrieve_index)
+        data = cur.fetchone()[0]
+        return data
+        
     
-    cur.execute("SELECT File_name FROM Images_Names WHERE Id=1")
-    image_file_name = cur.fetchone()[0]
-    #image_file_name = "output_images/knot.jpg"
+        
+    except lite.Error, e:
+        
+        print "Error %s:" % e.args[0]
+        sys.exit(1)
+        
+    finally:
+        
+        if con:
+            con.close()
+
+def retrieve_image_filename_from_db(retrieve_index):
+    try:
+        con = lite.connect(database)
+        cur = con.cursor()
+        cur.execute("SELECT File_name FROM Images_Names WHERE Id=%d"%retrieve_index)
+        image_file_name = cur.fetchone()[0]
+        return image_file_name
     
-    cur.execute("SELECT Data FROM Images WHERE Id = 1 LIMIT 1")
-    data = cur.fetchone()[0]
-    
+    except lite.Error, e:
+        print "Error %s:" % e.args[0]
+        sys.exit(1)
+        
+    finally:
+        
+        if con:
+            con.close()
+
+if __name__ == "__main__":
+    image_file_name = retrieve_image_filename_from_db(1)
+    data = retrieve_image_data_from_db(1)
     writeImage(data,image_output_directory+image_file_name)
-
     
-except lite.Error, e:
     
-    print "Error %s:" % e.args[0]
-    sys.exit(1)
-    
-finally:
-    
-    if con:
-        con.close()
