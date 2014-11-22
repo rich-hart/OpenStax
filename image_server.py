@@ -8,7 +8,7 @@ from retrieve_image_from_db import *
 #database = 'test.db'
 
 urls = (
-'/images/(.*)', 'images' #this is where the image folder is located....
+'/images/(.*)', 'images' 
 )
 
 class images:
