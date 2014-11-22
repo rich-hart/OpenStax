@@ -6,6 +6,7 @@ Setup
       sudo pip install web.py
       sudo pip install flup
       sudo apt-get install python-psycopg2
+      sudo apt-get install sqlite
       
 <!---And run chmod +x code.py to make it executable.-->
 
