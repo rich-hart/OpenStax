@@ -5,7 +5,9 @@ import sqlite3 as lite
 import sys
 
 image_directory = "images/"
-image_file_name = "knot.jpg"
+#image_file_name = "knot.jpg"
+#image_file_name = "Linux_logo.png"
+image_file_name = "partyanimsm.gif"
 
 def readImage():
 
