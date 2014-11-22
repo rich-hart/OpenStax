@@ -55,5 +55,4 @@ The file retrieve_image_from_db.py has sqlite support functions
 
 The file image_server.py has web.py GET functions
 
-The file image_server.py has web.py class for REST APIs
 
