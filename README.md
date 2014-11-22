@@ -1,9 +1,9 @@
 OpenStax
 ========
-Notes
+Setup
 --------
 
-Setup
+Install web.py, flup,python-psycopg2 and sqlite
 
       sudo pip install web.py
       sudo pip install flup
@@ -11,22 +11,8 @@ Setup
       sudo apt-get install sqlite
       
 <!---And run chmod +x code.py to make it executable.-->
-
-Run Server:
-
-Make the file executable
-
-      chmod +x code.py
-
-Run the file 
-
-      python code.py
-
-Specify port by running
-
-      python code.py 1234
-
-Test Database Setup:
+Build Test Database
+--------
 
 build image database for testing
 
@@ -39,10 +25,20 @@ check databaase contents
       sqlite> SELECT * FROM Images;
       sqlite> SELECT * FROM Images_Names;
 
+
+
+Communicate with Server
+--------
+
+Start the server
+
+      chmod +x image_server.py
+      python image_server.py 8000
+
 Retrieve Images From Server:
 
-
-      python image_server.py 8000
       http://0.0.0.0:8000/images/1
 
-Note: code assumes that database is saved under 'test.db'
+Notes
+--------
+Assume that the database is saved as 'test.db'
