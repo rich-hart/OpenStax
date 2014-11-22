@@ -1,6 +1,6 @@
 OpenStax
 ========
-Notes
+Setup
 --------
 
 Install web.py, flup,python-psycopg2 and sqlite
