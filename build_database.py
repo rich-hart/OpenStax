@@ -38,10 +38,10 @@ try:
     data = readImage()
     binary = lite.Binary(data)
     cur.execute("DROP TABLE IF EXISTS Images")
-    cur.execute("CREATE TABLE Images(Id INTEGER PRIMARY KEY, Data BLOB)")
-    cur.execute("INSERT INTO Images(Data) VALUES (?)", (binary,) )
+    cur.execute("CREATE TABLE Images(image_id INTEGER PRIMARY KEY, image BLOB)")
+    cur.execute("INSERT INTO Images(image) VALUES (?)", (binary,) )
     cur.execute("DROP TABLE IF EXISTS Images_Names")
-    cur.execute("CREATE TABLE Images_Names(Id INTEGER PRIMARY KEY, File_name TEXT)")
+    cur.execute("CREATE TABLE Images_Names(image_id INTEGER PRIMARY KEY, File_name TEXT)")
     cur.execute("INSERT INTO Images_Names(File_name) VALUES (?)", (image_file_name,) )
 
     con.commit()    

@@ -29,7 +29,7 @@ def retrieve_image_data_from_db(retrieve_index):
         con = lite.connect(database)
         cur = con.cursor()
         
-        cur.execute("SELECT Data FROM Images WHERE Id = %d LIMIT 1"%retrieve_index)
+        cur.execute("SELECT image FROM Images WHERE image_id = %d LIMIT 1"%retrieve_index)
         data = cur.fetchone()[0]
         return data
         
