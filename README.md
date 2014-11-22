@@ -42,3 +42,5 @@ Retrieve Images From Server:
 Notes
 --------
 Assume that the database is saved as 'test.db'
+
+retrieve_image_from_db.py has sqlite support functions
