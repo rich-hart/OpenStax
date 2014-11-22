@@ -1,5 +1,7 @@
 OpenStax
 ========
+
+
 Setup
 --------
 
@@ -13,7 +15,6 @@ Install web.py, flup,python-psycopg2 and sqlite
 <!---And run chmod +x code.py to make it executable.-->
 Build Test Database
 --------
-Assuming that images are saved under a table named 'Images'
 
 build image database for testing
 
@@ -39,12 +40,19 @@ Start the server
 Retrieve Images From Server:
 
       http://0.0.0.0:8000/images/1
+      http://0.0.0.0:8000/images/2
+      http://0.0.0.0:8000/images/3
 
 Notes
 --------
+
 Assume that the database is saved as 'test.db'
 
-retrieve_image_from_db.py has sqlite support functions
+Assume that images are saved in database under a table named 'Images'
 
-image_server.py has web.py class for REST APIs
+The file retrieve_image_from_db.py has sqlite support functions
+
+The file image_server.py has web.py GET functions
+
+The file image_server.py has web.py class for REST APIs
 
