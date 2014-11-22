@@ -5,8 +5,9 @@
 import sqlite3 as lite
 import sys
 
-image_file_name = "output_images/knot.jpg"
-def writeImage(data):
+image_output_directory = "output_images/"
+
+def writeImage(data,image_file_name):
     
     try:
         fout = open(image_file_name,'wb')
@@ -24,12 +25,16 @@ def writeImage(data):
 
 try:
     con = lite.connect('test.db')
+    cur = con.cursor()
     
-    cur = con.cursor()    
-    cur.execute("SELECT Data FROM Images LIMIT 1")
+    cur.execute("SELECT File_name FROM Images_Names WHERE Id=1")
+    image_file_name = cur.fetchone()[0]
+    #image_file_name = "output_images/knot.jpg"
+    
+    cur.execute("SELECT Data FROM Images WHERE Id = 1 LIMIT 1")
     data = cur.fetchone()[0]
     
-    writeImage(data)
+    writeImage(data,image_output_directory+image_file_name)
 
     
 except lite.Error, e:
