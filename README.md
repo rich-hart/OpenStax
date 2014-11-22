@@ -1,7 +1,9 @@
 OpenStax
 ========
-Setup
+Notes
 --------
+
+Setup
 
       sudo pip install web.py
       sudo pip install flup
