@@ -24,9 +24,7 @@ check database contents
 
       sqlite3 test.db
       sqlite> .schema Images;
-      sqlite> .schema Images_Names;
       sqlite> SELECT * FROM Images;
-      sqlite> SELECT * FROM Images_Names;
 
 
 
