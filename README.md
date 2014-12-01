@@ -16,16 +16,17 @@ Install web.py, flup,python-psycopg2 and sqlite
 Build Test Database
 --------
 
-build image database for testing
+Build image database for testing
 
-      python build_database.py
+      python build_test_database.py
       
-check database contents
+Check database contents
 
       sqlite3 test.db
       sqlite> .schema Images;
       sqlite> SELECT * FROM Images;
-
+      sqlite> .schema Image_Names;
+      sqlite> SELECT * FROM Image_Names;
 
 
 Communicate with Server
@@ -49,8 +50,9 @@ Assume that the database is saved as 'test.db'
 
 Assume that images are saved in database under a table named 'Images'
 
-The file retrieve_image_from_db.py has sqlite support functions
+The file database_support_functions.py has sqlite support functions
 
 The file image_server.py has web.py GET functions
 
+Entires for filenames and images in the database tables that are created when build_test_database.py is run will not nessisarily correspond to one another.  This is due to the fact that the functions meant to handle these operations not designed to run concurently. This is not a problem since the database that is created is only for testing purposes  and is not meant to be the actual database used by the image server. 
 
