@@ -5,10 +5,9 @@
 
 import sqlite3 as lite
 import sys
+import database_support_functions
 
 image_directory = "images/" #default directory where images are stored
-
-DATABASE = 'test.db'
 
 '''function for the reading of images'''
 def readImage(image_file_name):
@@ -39,7 +38,7 @@ def load_image_into_database(image_file_name):
     
     try:
         
-        con = lite.connect(DATABASE)
+        con = lite.connect(database_support_functions.DATABASE)
         
         cur = con.cursor()
         
@@ -74,7 +73,7 @@ if __name__ == "__main__":
     
     try:
         #connect to the DATABASE
-        con = lite.connect(DATABASE)
+        con = lite.connect(database_support_functions.DATABASE)
         
         cur = con.cursor()
         #destroy and create a new image table

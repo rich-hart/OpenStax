@@ -2,7 +2,7 @@
 
 import web
 import os
-from retrieve_image_from_db import * 
+from retrieve_image_from_db import retrieve_image_data_from_db
 '''
 database name is assumed to be 'test.db'
 
