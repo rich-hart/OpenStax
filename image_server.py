@@ -6,6 +6,13 @@ import web
 import os
 
 
+'''
+OpenStax CNX Python Coding Exercise Part 2: 
+
+Write a REST API that can be used to access an image by image_id using the code written in Step #1.  Assume it is a simple GET.  You can use any framework. 
+Web.py (http://webpy.org/) is a simple framework if you need a suggestion.
+'''
+
 
 urls = ( '/images/(.*)', 'images' ) #URL Suffix where images can be loaded
 

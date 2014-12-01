@@ -6,6 +6,15 @@ import sqlite3 as lite
 import sys
 import os
 
+'''
+
+OpenStax CNX Python Coding Exercise Part 1: 
+
+Write a function to access an image by image_id. 
+This includes SQL and connectivity to a database. 
+You can use the database of your choice (SQLite, MySQL, Postgres, etc.) for the example. 
+Include the name of the database you used in a comment in your solution.
+ '''
 
 image_output_directory = "./output_images/"  #Output directory for image database retrieval testing
 
