@@ -7,7 +7,7 @@ import sys
 import os
 image_output_directory = "./output_images/"
 database = 'test.db'
-query_index = 1
+#query_index = 1
 
 def writeImage(data,image_file_name):
     try:
@@ -61,12 +61,30 @@ def retrieve_image_filename_from_db(retrieve_index):
         if con:
             con.close()
 
+def retrieve_image_filename_size():
+    try:
+        con = lite.connect(database)
+        cur = con.cursor()
+        cur.execute("SELECT COUNT(*) FROM Images_Names")
+        file_count = cur.fetchone()[0]
+        return int(file_count)
+    
+    except lite.Error, e:
+        print "Error %s:" % e.args[0]
+        sys.exit(1)
+        
+    finally:
+        
+        if con:
+            con.close()
     
 if __name__ == "__main__":
     if not os.path.exists(image_output_directory):
         os.makedirs(image_output_directory)
-    image_file_name = retrieve_image_filename_from_db(query_index)
-    data = retrieve_image_data_from_db(query_index)
-    writeImage(data,image_output_directory+image_file_name)
+    file_count = retrieve_image_filename_size()
+    for query_index in range(1,file_count+1):
+        image_file_name = retrieve_image_filename_from_db(query_index)
+        data = retrieve_image_data_from_db(query_index)
+        writeImage(data,image_output_directory+image_file_name)
     
     
