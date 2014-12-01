@@ -25,7 +25,7 @@ Check database contents
       sqlite3 test.db
       sqlite> .schema
       sqlite> SELECT * FROM Images;
-      sqlite> SELECT * FROM Image_Names;
+      sqlite> SELECT * FROM Images_Names;
 
 
 Communicate with Server
