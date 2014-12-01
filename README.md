@@ -18,14 +18,15 @@ Build Test Database
 
 build image database for testing
 
-      python build_database.py
+      python build_test_database.py
       
 check database contents
 
       sqlite3 test.db
       sqlite> .schema Images;
       sqlite> SELECT * FROM Images;
-
+      sqlite> .schema Image_Names;
+      sqlite> SELECT * FROM Image_Names;
 
 
 Communicate with Server
@@ -49,7 +50,7 @@ Assume that the database is saved as 'test.db'
 
 Assume that images are saved in database under a table named 'Images'
 
-The file retrieve_image_from_db.py has sqlite support functions
+The file database_support_functions.py has sqlite support functions
 
 The file image_server.py has web.py GET functions
 
