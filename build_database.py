@@ -33,7 +33,7 @@ def readImage(image_file_name):
 '''function for loading images into a sqlite database'''
 def load_image_into_database(image_file_name):
     try:
-        con = lite.connect('test.db')
+        con = lite.connect(database)
         
         cur = con.cursor()
         data = readImage(image_file_name)
