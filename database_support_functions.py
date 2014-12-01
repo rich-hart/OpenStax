@@ -6,9 +6,11 @@ import sqlite3 as lite
 import sys
 import os
 
+
 image_output_directory = "./output_images/"
 
 DATABASE = 'test.db'
+
 
 def writeImage(data,image_path):
     
@@ -29,6 +31,7 @@ def writeImage(data,image_path):
         if fout:
             
             fout.close()       
+
 
 def retrieve_image_data_from_db(retrieve_index):
     
@@ -56,6 +59,7 @@ def retrieve_image_data_from_db(retrieve_index):
             
             con.close()
 
+
 def retrieve_image_filename_from_db(retrieve_index):
     
     try:
@@ -82,6 +86,7 @@ def retrieve_image_filename_from_db(retrieve_index):
             
             con.close()
 
+
 def retrieve_image_filename_count():
     
     try:
@@ -107,6 +112,7 @@ def retrieve_image_filename_count():
         if con:
             
             con.close()
+            
     
 if __name__ == "__main__":
     

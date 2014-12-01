@@ -3,11 +3,15 @@
 
 # further reading: http://zetcode.com/db/sqlitepythontutorial/
 
+import database_support_functions
 import sqlite3 as lite
 import sys
-import database_support_functions
+from os import listdir
+from os.path import isfile, join
 
-image_directory = "images/" #default directory where images are stored
+
+image_directory = "./images/" #default directory where images are stored
+
 
 '''function for the reading of images'''
 def readImage(image_file_name):
@@ -66,7 +70,14 @@ def load_image_into_database(image_file_name):
         
         if con:
             
-            con.close()  
+            con.close()
+            
+            
+def get_file_names_from_dir(directory):
+    
+    file_list = [ f for f in listdir(directory) if isfile(join(directory,f)) ]
+    
+    return file_list
 
 
 if __name__ == "__main__":
@@ -98,10 +109,11 @@ if __name__ == "__main__":
     finally:
         
         if con:
+            
             con.close()
     #load images from directory into the DATABASE
-    load_image_into_database("Linux_logo.png")
+    image_file_list = get_file_names_from_dir(image_directory)
     
-    load_image_into_database("partyanimsm.gif")
-    
-    load_image_into_database("knot.jpg")
+    for image_file in image_file_list:
+        
+        load_image_into_database(image_file)
