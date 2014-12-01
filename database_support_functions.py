@@ -11,7 +11,7 @@ image_output_directory = "./output_images/"
 
 DATABASE = 'test.db'
 
-
+''' function that takes image data and saves it to the file path'''
 def writeImage(data,image_path):
     
     try:
@@ -32,7 +32,7 @@ def writeImage(data,image_path):
             
             fout.close()       
 
-
+''' function that retrieves image data from the database at the specified index'''
 def retrieve_image_data_from_db(retrieve_index):
     
     try:
@@ -59,7 +59,7 @@ def retrieve_image_data_from_db(retrieve_index):
             
             con.close()
 
-
+''' a function that retrieves the file name of an image at the specified index '''
 def retrieve_image_filename_from_db(retrieve_index):
     
     try:
@@ -86,8 +86,8 @@ def retrieve_image_filename_from_db(retrieve_index):
             
             con.close()
 
-
-def retrieve_image_filename_count():
+''' retrieves the number of images that have been stored in the database'''
+def retrieve_image_count():
     
     try:
         
@@ -95,7 +95,7 @@ def retrieve_image_filename_count():
         
         cur = con.cursor()
         
-        cur.execute("SELECT COUNT(*) FROM Images_Names")
+        cur.execute("SELECT COUNT(*) FROM Images")
         
         file_count = cur.fetchone()[0]
         
@@ -113,14 +113,15 @@ def retrieve_image_filename_count():
             
             con.close()
             
-    
+''' A main function meant to test the database and its support functions.  The main function
+reads all the images currently stored in the database and write those images into an output folder.  '''
 if __name__ == "__main__":
     
     if not os.path.exists(image_output_directory):
         
         os.makedirs(image_output_directory)
         
-    file_count = retrieve_image_filename_count()
+    file_count = retrieve_image_count()
     
     for query_index in range(1,file_count+1):
         

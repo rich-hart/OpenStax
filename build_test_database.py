@@ -3,14 +3,15 @@
 
 # further reading: http://zetcode.com/db/sqlitepythontutorial/
 
-import database_support_functions
+import database_support_functions 
+
 import sqlite3 as lite
 import sys
 from os import listdir
 from os.path import isfile, join
 
 
-image_directory = "./images/" #default directory where images are stored
+image_directory = "./input_images/" #default directory where test images are stored
 
 
 '''function for the reading of images'''
@@ -73,6 +74,7 @@ def load_image_into_database(image_file_name):
             con.close()
             
             
+''' function for listing files currently in a directory'''            
 def get_file_names_from_dir(directory):
     
     file_list = [ f for f in listdir(directory) if isfile(join(directory,f)) ]
@@ -80,6 +82,13 @@ def get_file_names_from_dir(directory):
     return file_list
 
 
+'''
+main function that is used to load a collection of images from a directory into a 
+database for testing both the database_support_functions and image_server modules.  When the main
+function is run two tables are created (if tables existed before they are destroyed).  One table 
+named 'Images' is used to store a collection of image data, the other table Images_Names stores their
+original file names.  
+'''
 if __name__ == "__main__":
     
     try:
