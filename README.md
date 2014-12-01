@@ -23,9 +23,8 @@ Build image database for testing
 Check database contents
 
       sqlite3 test.db
-      sqlite> .schema Images;
+      sqlite> .schema;
       sqlite> SELECT * FROM Images;
-      sqlite> .schema Image_Names;
       sqlite> SELECT * FROM Image_Names;
 
 
