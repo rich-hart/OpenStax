@@ -1,8 +1,10 @@
 #further reading: http://webpy.github.io/images
 
+from database_support_functions import retrieve_image_data_from_db
+
 import web
 import os
-from database_support_functions import retrieve_image_data_from_db
+
 
 
 urls = ( '/images/(.*)', 'images' ) #URL Suffix where images can be loaded
@@ -16,9 +18,9 @@ class images:
         
         index = int(index)
         
-        data = retrieve_image_data_from_db(index)
+        image_data = retrieve_image_data_from_db(index)
         
-        return data 
+        return image_data 
 
 
 '''main function which starts the image server.  To test the server open up a web browser on the 

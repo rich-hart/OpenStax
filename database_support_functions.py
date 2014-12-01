@@ -7,9 +7,9 @@ import sys
 import os
 
 
-image_output_directory = "./output_images/"
+image_output_directory = "./output_images/"  #Output directory for image database retrieval testing
 
-DATABASE = 'test.db'
+DATABASE = 'test.db'#database file name
 
 ''' function that takes image data and saves it to the file path'''
 def writeImage(data,image_path):
