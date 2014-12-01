@@ -36,6 +36,8 @@ local machine and type in the domain returned by STDOUT when the script was firs
 the suffix 'images/1', 'images/2', or 'images/2'.  For example, 'http://0.0.0.0:8000/images/1' '''
 if __name__ == "__main__":
     
-    app = web.application(urls, globals())
+    port = globals() #Port is equal to whatever is passed in as a parameter when script is run. 
+    
+    app = web.application(urls, port)
     
     app.run()
